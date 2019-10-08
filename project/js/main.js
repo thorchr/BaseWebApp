@@ -70,7 +70,7 @@ function handleFormSubmit(){
 
 function getPosts(){
 
-	return firebase.database().ref('/posts/').once('value').then(function(snapshot) {
+	return firebase.database().ref("posts").once('value').then(function(snapshot) {
   	var posts = snapshot.val();
 
   	for(var postKey in posts){
