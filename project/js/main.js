@@ -38,3 +38,25 @@ function handleSignIn(){
   // ...
 });
 }
+
+function addMessage(postTitle,postBody){
+	var postData = {
+		title: postTitle,
+		body:  postBody
+	}
+
+	// Get a reference to the database service
+	var database = firebase.database().ref("posts");
+
+	// Create a new post reference with an auto-generated id
+	var newPostRef = database.push();
+	newPostRef.set(postData);
+
+}
+
+
+function handleFormSubmit(){
+	var postTitle = $("#post-title").val();
+	var postBody = $("#post-body").val();
+	addMessage(postTitle,postBody);
+}
